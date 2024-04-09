@@ -1,17 +1,10 @@
-FROM alpine:3.17
+FROM alpine:3.19.1
 
 RUN apk update && \
     apk upgrade && \
     apk add git && \
-    apk add go && \
-    apk add make && \
-    apk add make && \
     apk add rsync && \
-    apk add jq && \
-    git clone https://github.com/cli/cli.git gh-cli && \
-    cd gh-cli && \
-    make && \
-    mv ./bin/gh /usr/local/bin/
+    apk add github-cli
 
 ADD entrypoint.sh /entrypoint.sh
 
